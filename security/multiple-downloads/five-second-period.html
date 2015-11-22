@@ -12,7 +12,7 @@
             'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
         ];
 
-        function downloadAll(links) {
+        function downloadAll(urls) {
             for (var i = 0; i < urls.length; i++) {
                 setTimeout(downloadOne, 5000 * i, urls[i]);
             }
@@ -32,6 +32,6 @@
             document.body.removeChild(link);
         }
 
-    downloadAll(links);
+        downloadAll(links);
     </script>
 </html>
