@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test page</title>
+    </head>
+
+    <script>
+        // Taken from http://m-austin.com/hax/chrome/demo1.html
+        function get_files() {
+
+            var dl_link = document.createElement('a');
+            document.body.appendChild(dl_link);
+
+            dl_link.setAttribute('href', "test.js");
+
+            for (i = 0; i < 5; i++) {
+                var evt = document.createEvent("MouseEvents");
+                dl_link.setAttribute('download', 'test.js');
+                evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                dl_link.dispatchEvent(evt);
+            }
+        }
+    </script>
+    <body>
+        <p>
+            <input type="button" value="Run" onclick="get_files()">
+        </p>
+    </body>
+</html>
+
