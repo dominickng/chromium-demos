@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test page</title>
+    </head>
+    <body><h1>Download limiter test - more than 50 simultaneous</h1></body>
+
+    <script>
+        var links = [
+            'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.exe',
+            'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg',
+            'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar'
+        ];
+
+        function downloadAll(urls) {
+            var link = document.createElement('a');
+
+            link.setAttribute('download', null);
+            link.style.display = 'none';
+
+            document.body.appendChild(link);
+
+            for (var i = 0; i < 60;; i++) {
+                link.setAttribute('href', urls[i % urls.length]);
+                link.click();
+            }
+
+            document.body.removeChild(link);
+        }
+
+downloadAll(links);
+    </script>
+</html>
