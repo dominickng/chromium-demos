@@ -20,7 +20,7 @@
 
             document.body.appendChild(link);
 
-            for (var i = 0; i < 60;; i++) {
+            for (var i = 0; i < 60; i++) {
                 link.setAttribute('href', urls[i % urls.length]);
                 link.click();
             }
