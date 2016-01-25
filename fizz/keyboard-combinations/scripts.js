@@ -13,25 +13,28 @@ if ('serviceWorker' in navigator) {
 
 var mapKeys = function() {
   window.onkeydown = function(e) {
-    var elem = document.getElementById("message");
-    var msg = "";
-    if (e.ctrlKey) {
-      msg += "Ctrl-";
-    }
-    if (e.metaKey) {
-      if (navigator.platform.indexOf("Mac") == -1) {
-        msg += "Meta-";
-      } else {
-        msg += "Cmd-";
+    // Only fire on [0-9], [a-z].
+    if (e.keyCode >= 48 && e.keyCode <= 90) {
+      var elem = document.getElementById("message");
+      var msg = "";
+      if (e.ctrlKey) {
+        msg += "Ctrl-";
       }
-    }
-    if (e.shiftKey) {
-      msg += "Shift-";
-    }
-    msg += String.fromCharCode(e.keyCode) + " captured";
+      if (e.metaKey) {
+        if (navigator.platform.indexOf("Mac") == -1) {
+          msg += "Meta-";
+        } else {
+          msg += "Cmd-";
+        }
+      }
+      if (e.shiftKey) {
+        msg += "Shift-";
+      }
+      msg += String.fromCharCode(e.keyCode) + " captured";
 
-    elem.innerHTML = msg;
-    e.preventDefault();
+      elem.innerHTML = msg;
+      e.preventDefault();
+    }
   }
 }
 
