@@ -19,7 +19,7 @@ var mapKeys = function() {
       msg += "Ctrl-";
     }
     if (e.metaKey) {
-      if (navigator.platform.find("Mac") == -1) {
+      if (navigator.platform.indexOf("Mac") == -1) {
         msg += "Meta-";
       } else {
         msg += "Cmd-";
@@ -34,3 +34,5 @@ var mapKeys = function() {
     e.preventDefault();
   }
 }
+
+mapKeys();
