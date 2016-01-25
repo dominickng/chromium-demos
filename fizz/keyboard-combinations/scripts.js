@@ -12,8 +12,8 @@ if ('serviceWorker' in navigator) {
 }
 
 var mapKeys = function() {
-  var elem = document.getElementById("message");
   window.onkeydown = function(e) {
+    var elem = document.getElementById("message");
     var msg = "";
     if (e.ctrlKey) {
       msg += "Ctrl-";
