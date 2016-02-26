@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test page</title>
+    </head>
+    <body><h1>External protocol handler test - once per 5 seconds</h1></body>
+
+    <script>
+        var links = [
+            'mailto:nobody@example.com',
+            'tel:+0000000000',
+            'skype:nobodynobodynobody'
+        ];
+
+        function downloadAll(urls) {
+            for (var i = 0; i < urls.length; i++) {
+                setTimeout(downloadOne, 5000 * i, urls[i]);
+            }
+        }
+
+        function downloadOne(url) {
+            var link = document.createElement('a');
+
+            link.setAttribute('download', null);
+            link.style.display = 'none';
+
+            document.body.appendChild(link);
+
+            link.setAttribute('href', url);
+            console.log("Triggering download of " + url);
+            link.click();
+
+            document.body.removeChild(link);
+        }
+
+        downloadAll(links);
+    </script>
+</html>
+
