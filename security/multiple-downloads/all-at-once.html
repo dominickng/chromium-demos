@@ -21,6 +21,7 @@
             document.body.appendChild(link);
 
             for (var i = 0; i < urls.length; i++) {
+                console.log("Triggering download of " + urls[i]);
                 link.setAttribute('href', urls[i]);
                 link.click();
             }
