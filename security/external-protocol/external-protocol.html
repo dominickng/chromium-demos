@@ -21,13 +21,12 @@
         function downloadOne(url) {
             var link = document.createElement('a');
 
-            link.setAttribute('download', null);
             link.style.display = 'none';
 
             document.body.appendChild(link);
 
             link.setAttribute('href', url);
-            console.log("Triggering download of " + url);
+            console.log("Triggering visit to " + url);
             link.click();
 
             document.body.removeChild(link);
