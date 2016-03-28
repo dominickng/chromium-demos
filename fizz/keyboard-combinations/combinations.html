@@ -17,11 +17,16 @@
     <script type="text/javascript">
       document.getElementById("fullscreen").addEventListener("click",
         function() {
-            navigator.requestFullscreen = navigator.requestFullscreen ||
-              navigator.webkitRequestFullscreen ||
-              navigator.mozRequestFullscreen ||
-              navigator.msRequestFullscreen;
-            document.body.requestFullscreen();
+            var elem = document.body;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            }
         }
       );
     </script>
