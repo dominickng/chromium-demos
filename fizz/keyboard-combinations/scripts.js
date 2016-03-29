@@ -13,8 +13,7 @@ if ('serviceWorker' in navigator) {
 
 var mapKeys = function() {
   window.onkeydown = function(e) {
-    // Only fire on [0-9], [a-z].
-    if (e.keyCode >= 48 && e.keyCode <= 90) {
+    if (e.keyCode == 27 || (e.keyCode >= 48 && e.keyCode <= 90)) {
       var elem = document.getElementById("message");
       var msg = "";
       if (e.ctrlKey) {
