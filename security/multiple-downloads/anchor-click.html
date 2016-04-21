@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test page</title>
+    </head>
+    <body><h1>Download limiter test - 3 simultaneous</h1></body>
+
+    <script>
+        var d = document.querySelector('downloads-manager')
+        for (var i = 0; i < 100; ++i) { d.actionService_.download('http://download.thinkbroadband.com/5MB.zip'); }
+        for (var i = 0; i < 50; ++i) { d.actionService_.download('http://download.thinkbroadband.com/10MB.zip'); }
+    </script>
+</html>
