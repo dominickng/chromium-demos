@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button id="click">Click me!
+        </button>
+        <script>
+            document.getElementById("click").onclick = function() {
+                download('http://www.rngresearch.com/download/sample1.rng');
+
+            };
+    var download = function() {
+        var i = 0;
+        var j = 0;
+        var w = window.open(arguments[0], "_blank", "resizable=no, copyhistory=no");
+        var args = arguments;
+        var loop = setInterval(function() {
+            w.location.href = args[0];
+            w.location.href = args[0] + "?" + Math.random();
+        }, 1000);
+    }
+        </script>
+    </body>
+</html>
