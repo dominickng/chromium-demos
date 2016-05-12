@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test page</title>
+    </head>
+    <body><h1>Download limiter test - Download then redirect</h1></body>
+
+    <script>
+        var link = document.createElement('a');
+
+        link.setAttribute('download', null);
+        link.style.display = 'none';
+        link.setAttribute('href', 'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.exe');
+        console.log("Triggering download");
+        link.click();
+
+        var link = document.createElement('a');
+
+        link.style.display = 'none';
+        link.setAttribute('href', 'https://minecraft.net/en/download/');
+        console.log("Navigating");
+        link.click();
+    </script>
+</html>
