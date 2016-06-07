@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <title>Page Info</title>
+  <link rel="stylesheet" href="page-info.css">
+<body>
+
+<omnibox-container>
+  <omnibox>
+  <a href="#" onclick="togglePageInfo()"><img id="lock-icon" class="lock-icon" src="img/omnibox_https_valid_incognito.svg"></a>
+  <div class="message">
+    <span class="message-1">Location allowed</span>
+  </div>
+  <div class="url" id="url"><span class="scheme">https</span>://www.google.com</div>
+  </omnibox>
+</omnibox-container>
+<page-info-container id="page-info-container">
+  <page-info id="page-info">
+    <header>
+      <origin><img src="img/favicon.ico"><div class="origin">google.com</div></origin>
+      <spacer></spacer>
+      <security-summary>
+        Your connection to this site is private. <!--<a class="details-link" href="javascript:void;">Details</a>-->
+      </security-summary>
+      <spacer></spacer>
+      <!-- <button class="revoke-cert-decision">Stop using an invalid certificate</button> -->
+    </header>
+    <hr>
+    <site-settings>
+      <section>
+        <section-title>Cookies</section-title>
+        <spacer></spacer>
+        <content>
+          <table>
+            <tr>
+              <td>🍪</td>
+              <td>
+                <a class="details-link" href="javascript:void;">15 from this site</a>, 1 from other sites
+              </td>
+              <td></td>
+            </tr>
+          </table>
+        </content>
+      </section>
+      <section>
+        <section-title>Permissions</section-title>
+        <spacer></spacer>
+        <content>
+          <table>
+            <tr>
+              <td><img src="img/allowed_location.png"></td>
+              <td>Location:</td>
+              <td class="select">
+                <select>
+                  <option value="" selected="selected">Allowed by you</option>
+                  <option value="">Ask by default</option>
+                  <option value="">Blocked by you</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="img/allowed_camera.png"></td>
+              <td>Camera:</td>
+              <td class="select">
+                <select>
+                  <option value="">Ask by default</option>
+                  <option value="">Allowed by you</option>
+                  <option value="">Blocked by you</option>
+                  <option value="" selected="selected">Blocked by Safe Browsing</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="img/allowed_mic.png"></td>
+              <td>Microphone:</td>
+              <td class="select">
+                <select>
+                  <option value="" selected="selected">Default microphone</option>
+                  <option value="">Logitech Web Microphone</option>
+                  <option value="">Ask by default</option>
+                  <option value="">Blocked by you</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="img/allowed_notifications.png"></td>
+              <td>Notifications:</td>
+              <td class="select">
+                <select>
+                  <option value="">Ask by default</option>
+                  <option value="">Allowed by you</option>
+                  <option value="">Blocked by you</option>
+                  <option value="" selected="selected">Blocked by Safe Browsing</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="img/allowed_fullscreen.png"></td>
+              <td>Fullscreen:</td>
+              <td class="select">
+                <select>
+                  <option value="">Ask by default</option>
+                  <option value="">Allowed by you</option>
+                  <option value="">Blocked by you</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </content>
+        <br>
+      </section>
+      <section>
+        <content><a href="javascript:void;">Site Settings</a></content>
+      </section>
+    </site-settings>
+  </page-info>
+</page-info-container>
+
+<button onclick="triggerLocation()" class="revoke-cert-decision">Allow geolocation</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
