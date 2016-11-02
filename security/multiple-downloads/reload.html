@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test page</title>
+    </head>
+    <body><h1>Download limiter test - Reload</h1></body>
+
+    <a href='data:text/plain,'></a>
+    <script>
+        var n=parseInt(location.hash.substr(1));
+        if (isNaN(n)) n = 5;
+        var a=document.body.children[0];
+        a.download=n+'.txt';
+        a.click();
+        console.log(n);
+        if (n>0){
+            location.hash=n-1;
+            setTimeout(function(){location.reload()},500);
+        }
+    </script>
+</html>
